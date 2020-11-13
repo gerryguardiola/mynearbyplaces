@@ -1,11 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from "react-router-dom";
+import Home from './components/Home';
+import Login from './components/Login';
 import './App.css';
-
 function App() {
   return (
-    <div className="App">
-     Practicing changes
-    </div>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Switch>
+        <Route exact path='/' render={props => <Home {...props} />}>
+
+        </Route>
+        <Route path='/login' >
+          <Login />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
