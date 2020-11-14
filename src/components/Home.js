@@ -17,7 +17,7 @@ class Home extends React.Component{
     }
 
     render(){
-       let username = '';
+       let username = "";
         const location = this.props.location;
         if (location && location.state && location.state.user) {
             username = location.state.user;        
@@ -25,10 +25,10 @@ class Home extends React.Component{
 
         return (
             <div>
-                {this.state.loggedIn ? <div>
+                {username != "" ? <div>
                 <Link to='/add'>Add Location</Link> { username }
                 </div>
-                :<div><Link to='/login' onClick={this.loginCheck()}>Login to Continue</Link></div>}
+                :<div><Link to='/login'>Login to Continue</Link></div>}
             </div>
         )
     }
