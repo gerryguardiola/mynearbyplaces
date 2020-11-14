@@ -29,7 +29,7 @@ class Home extends React.Component{
                 <Link to='/add'>Add Location</Link> { username }
                 </div>
                 :<div><Link to='/login'>Login to Continue</Link></div>}
-                {this.loginCheck}
+                {this.loginCheck()}
             </div>
         )
     }
