@@ -28,7 +28,7 @@ class Home extends React.Component{
                 {this.state.loggedIn ? <div>
                 <Link to='/add'>Add Location</Link> { username }
                 </div>
-                :<div><Link to='/login' onclick={this.loginCheck()}>Login to Continue</Link></div>}
+                :<div><Link to='/login' onClick={this.loginCheck()}>Login to Continue</Link></div>}
             </div>
         )
     }
