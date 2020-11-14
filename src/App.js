@@ -18,7 +18,7 @@ function App() {
         <Route path='/login' >
           <Login />
         </Route>
-        <Route path='/add' render={props => <AddLocation {...props} />}>
+        <Route exact path='/add' render={props => <AddLocation {...props} />}>
         </Route>
       </Switch>
     </BrowserRouter>
