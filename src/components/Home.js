@@ -5,48 +5,31 @@ import {
     Route,
     Link
   } from "react-router-dom";
-{/*import Searchpage from "./Searchpage"
-import Business from './Business';
-*/}
+
 class Home extends React.Component{
     constructor(props){
         super(props)
-        this.state = {showLoginForm: true}
+        this.state = {loggedIn: false}
+    }
     
+    loginCheck = () =>{
+        this.setState({loggedIn: true}) 
+    }
 
-    }
-    
-    login = ()=>{
-        this.setState({showLoginForm: false}) 
-    }
     render(){
-       
        let username = '';
         const location = this.props.location;
-        if (location) {
-            console.log(location);
-            if (location.state) {
-                if (location.state.user) {
-                    username = location.state.user;
-                }
-            }
+        if (location && location.state && location.state.user) {
+            username = location.state.user;        
         }
 
         return (
-            
             <div>
-                <div>
-                    {username.length > 0 ? 
-                    <div>
-                    <Link to='/'>Add Location</Link> { username}
-                    </div>
-                    :<Link to='/login'>Login to Continue</Link>}
-
+                {this.state.loggedIn ? <div>
+                <Link to='/add'>Add Location</Link> { username }
                 </div>
-                
-                {/*<div>
-                    <Searchpage/>
-                </div>*/}
+                :<div><Link to='/login'>Login to Continue</Link></div>}
+                {this.loginCheck}
             </div>
         )
     }
