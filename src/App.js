@@ -7,6 +7,9 @@ import {
 import Home from './components/Home';
 import Login from './components/Login';
 import AddLocation from './components/AddLocation';
+import Reviews from './components/Reviews';
+import Search from './components/Search';
+import MyYelp from './components/MyYelp';
 import './App.css';
 function App() {
   return (
@@ -18,7 +21,17 @@ function App() {
         <Route path='/login' >
           <Login />
         </Route>
-        <Route exact path='/add' render={props => <AddLocation {...props} />}>
+        <Route path='/add' render={props => <AddLocation {...props} />}>
+        </Route>
+        <Route path='/update' render={props => <AddLocation update="true" {...props} />}>
+        </Route>
+        <Route exact path='/business' render={props => <Reviews {...props} />}>
+        </Route>
+        <Route path='/search' >
+          <Search />
+        </Route>
+        <Route path='/yelp' >
+          <MyYelp />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -1,35 +1,36 @@
 import React from 'react';
-import {
-    BrowserRouter,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Home extends React.Component{
     constructor(props){
         super(props)
-        this.state = {loggedIn: false}
+        this.state = {loggedIn: false, username: ""}
     }
     
     loginCheck = () =>{
-        this.setState({loggedIn: true}) 
+       this.setState({loggedIn: true})
     }
 
     render(){
-       let username = "";
-        const location = this.props.location;
+    var userna = "";
+    const location = this.props.location;
+    
+    if (this.state.username === ""){
         if (location && location.state && location.state.user) {
-            username = location.state.user;        
+            userna = location.state.user;    
+            this.setState({username:userna})
         }
-
+    }
         return (
+        <div>
             <div>
-                {username != "" ? <div>
-                <Link to='/add'>Add Location</Link> { username }
+                {this.state.username !== "" || this.state.loggedIn === true? 
+                <div>
+                <Link to='/yelp'>Continue To MyNearbyPlaces</Link> { this.state.username }
                 </div>
-                :<div><Link to='/login'>Login to Continue</Link></div>}
+                :<div><Link to='/login' onClick ={() => this.loginCheck()}>Login to Continue</Link></div>}
             </div>
+        </div>
         )
     }
 }
