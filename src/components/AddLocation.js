@@ -7,9 +7,9 @@ class AddLocation extends React.Component{
         super(props)
         this.state ={name: "", address: "",city: "",state:"", complete: false, reviews: []}
 
-        if (props.update === "true"){
-            console.log(props.update)
-            this.state.update = true
+        if (props.updated === "true"){
+            console.log(props.updated)
+            this.state.updated = true
             var id = props.location.state.id
 
             this.state.id = BusinessFunctions.allbusinesses()[id].id
@@ -27,8 +27,8 @@ onSubmit = (event) => {
         var newBusiness = {id : this.state.id,name: this.state.name, open: this.state.open ,
              address: this.state.address,city: this.state.city,state : this.state.state, 
              reviews: this.state.reviews}
-        if (this.state.update){
-            BusinessFunctions.updatebusiness(newBusiness)
+        if (this.state.updated){
+            BusinessFunctions.updatedbusiness(newBusiness)
         }
         else {
             BusinessFunctions.addbusiness(newBusiness)
@@ -49,7 +49,7 @@ render(){
 
     return (
         <div>
-            {this.state.update ? "Update": "Add"}
+            {this.state.updated ? "update": "Add"}
             <form onSubmit={this.onSubmit}>  
 
                 <input type="text" name="name" value={this.state.name} placeholder = "Location Name"

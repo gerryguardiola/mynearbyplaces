@@ -23,7 +23,7 @@ function App() {
         </Route>
         <Route path='/add' render={props => <AddLocation {...props} />}>
         </Route>
-        <Route path='/update' render={props => <AddLocation update="true" {...props} />}>
+        <Route path='/update' render={props => <AddLocation updated = "true" {...props} />}>
         </Route>
         <Route exact path='/business' render={props => <Reviews {...props} />}>
         </Route>
