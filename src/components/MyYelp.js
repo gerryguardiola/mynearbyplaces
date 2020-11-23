@@ -12,9 +12,7 @@ class Home extends React.Component{
         return (
         <div>
             <div>
-                <Link to='/add'>Add Location</Link>
-            </div>
-            <div>
+            <Link to='/add'>Add Location</Link>
             <Search/>
             </div>
         </div>

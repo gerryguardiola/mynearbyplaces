@@ -44,11 +44,11 @@ class Reviews extends React.Component{
         
         return (
             <div>
-            {reviewHolder}
-            {this.state.input ? <form onSubmit= {this.onSubmit}> <input onChange= {this.updateReview}
-             type = "text" placeholder = "post your review here!"/> 
-            <button type ="submit"> Post Your Review</button> </form> : "" }
-            <br/><Link to="/yelp">Return to Search</Link>
+                {reviewHolder}
+                {this.state.input ? <form onSubmit= {this.onSubmit}> <input onChange= {this.updateReview}
+                 type = "text" placeholder = "post your review here!"/> 
+                <button type ="submit"> Post Your Review</button> </form> : "" }
+                <br/><Link to="/yelp">Return to Search</Link>
             </div>
         )
     }

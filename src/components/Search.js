@@ -57,7 +57,6 @@ import BusinessFunctions from "./BusinessFunctions"
                 <input type="text" value={this.state.findCity} placeholder = "Enter a City (i.e. Tucson)"
                  onChange={this.findCity}></input>
 
-                <div>
                 <input type="text" value={this.state.findState} placeholder = "Enter a State (i.e. AZ)"
                  onChange={this.findState} ></input>
                 <br/>
@@ -65,15 +64,13 @@ import BusinessFunctions from "./BusinessFunctions"
                 <p>Enter a location to search for</p>
                 <input type="text" value={this.state.input} placeholder = "Enter a business name here."
                  onChange={this.search}
-                ></input>
-                <button type="submit">Find Businesses</button>
-                </div>
+                ></input>         
             </form>
 
-                {locationList.length === 0 ? "No businesses found yet" 
-                :<div><b>{locationList.length} Results Found</b></div> }
+                {locationList.length === 0 ? 
+                "No businesses found yet" 
+                :<div><b>{locationList.length} Results Found</b></div>}
                 {locationList}
-
         </div>
         )
     }

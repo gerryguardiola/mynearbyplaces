@@ -23,13 +23,11 @@ class Home extends React.Component{
     }
         return (
         <div>
+            {this.state.username !== "" || this.state.loggedIn === true? 
             <div>
-                {this.state.username !== "" || this.state.loggedIn === true? 
-                <div>
-                <Link to='/yelp'>Continue To MyNearbyPlaces</Link> { this.state.username }
-                </div>
-                :<div><Link to='/login' onClick ={() => this.loginCheck()}>Login to Continue</Link></div>}
+            <Link to='/yelp'>Continue To MyNearbyPlaces</Link> { this.state.username }
             </div>
+            :<div><Link to='/login' onClick ={() => this.loginCheck()}>Login to Continue</Link></div>}
         </div>
         )
     }
