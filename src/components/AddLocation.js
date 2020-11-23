@@ -28,7 +28,7 @@ onSubmit = (event) => {
              address: this.state.address,city: this.state.city,state : this.state.state, 
              reviews: this.state.reviews}
         if (this.state.updated){
-            BusinessFunctions.updatedbusiness(newBusiness)
+            BusinessFunctions.updatebusiness(newBusiness)
         }
         else {
             BusinessFunctions.addbusiness(newBusiness)

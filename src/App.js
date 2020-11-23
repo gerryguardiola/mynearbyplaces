@@ -16,7 +16,6 @@ function App() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route exact path='/' render={props => <Home {...props} />}>
-
         </Route>
         <Route path='/login' >
           <Login />
