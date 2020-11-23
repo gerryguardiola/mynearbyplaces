@@ -5,10 +5,10 @@ const BusinessFunctions = {
         if (input === ""){
             return []
         }
-        if (businesses.filter(b => BusinessFunctions.contains(b.name, input) &&
-         BusinessFunctions.contains(b.city,city) && BusinessFunctions.contains(b.state,state))){
-            return businesses.filter(b => BusinessFunctions.contains(b.name, input) && 
-            BusinessFunctions.contains(b.city,city) && BusinessFunctions.contains(b.state,state))
+        if (businesses.filter(location => BusinessFunctions.contains(location.name, input) &&
+         BusinessFunctions.contains(location.city,city) && BusinessFunctions.contains(location.state,state))){
+            return businesses.filter(location => BusinessFunctions.contains(location.name, input) && 
+            BusinessFunctions.contains(location.city,city) && BusinessFunctions.contains(location.state,state))
         }
         else{
             return []
