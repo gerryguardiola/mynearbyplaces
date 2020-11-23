@@ -2,20 +2,21 @@ var businesses = []
 
 const BusinessFunctions = {
     findbusinesses:(input, city, state) => {
-        if (input === ""){
+        if (input === null){
             return []
         }
         if (businesses.filter(location => BusinessFunctions.contains(location.name, input) &&
-         BusinessFunctions.contains(location.city,city) && BusinessFunctions.contains(location.state,state))){
+         BusinessFunctions.contains(location.city, city) && BusinessFunctions.contains(location.state, state))){
+
             return businesses.filter(location => BusinessFunctions.contains(location.name, input) && 
-            BusinessFunctions.contains(location.city,city) && BusinessFunctions.contains(location.state,state))
+            BusinessFunctions.contains(location.city, city) && BusinessFunctions.contains(location.state, state))
         }
         else{
             return []
         }
     },
-    contains: (str,inc) =>{
-        return (str.toLowerCase().includes(inc.toLowerCase()))
+    contains: (expected, search) =>{
+        return (expected.toLowerCase().includes(search.toLowerCase()))
     },
     addbusiness:(business) => {
         business.open = true
@@ -27,16 +28,15 @@ const BusinessFunctions = {
     },
     deleteLocation:(id) => {
         businesses[id].open = false
-    }
-    ,
+    },
+    addreview:(id, review) => {
+        businesses[id].reviews.push(review)
+    },
     allbusinesses:() => {
        return businesses 
     },
     findid:(id) => {
         return businesses[id]
-    },
-    addreview:(id,review) => {
-        businesses[id].reviews.push(review)
     }
 }
 

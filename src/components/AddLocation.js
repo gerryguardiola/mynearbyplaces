@@ -6,7 +6,9 @@ class AddLocation extends React.Component{
     constructor(props){
         super(props)
         this.state ={name: "", address: "",city: "",state:"", complete: false, reviews: []}
-        if (props.update === true){
+
+        if (props.update === "true"){
+            console.log(props.update)
             this.state.update = true
             var id = props.location.state.id
 
@@ -29,13 +31,13 @@ onSubmit = (event) => {
             BusinessFunctions.updatebusiness(newBusiness)
         }
         else {
-        BusinessFunctions.addbusiness(newBusiness)
+            BusinessFunctions.addbusiness(newBusiness)
         }
         event.preventDefault();
     }
 
 onChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({[event.target.name]: event.target.value });
 }
 
 render(){
@@ -46,41 +48,24 @@ render(){
     }
 
     return (
-        <div className="Add">
-            {this.state.update ? "Update Business": "Add Business"}
+        <div>
+            {this.state.update ? "Update": "Add"}
             <form onSubmit={this.onSubmit}>  
-                <input
-                    type="text"
-                    name="name"
-                    value={this.state.name}
-                    placeholder = "Business Name"
-                    onChange={this.onChange}
-                ></input><br/>
+
+                <input type="text" name="name" value={this.state.name} placeholder = "Location Name"
+                 onChange={this.onChange}></input><br/>
             
-            <input
-                type="text"
-                name="address"
-                value={this.state.address}
-                placeholder = "Address"
-                onChange={this.onChange}
-            ></input><br/>
-            <input
-                type="text"
-                name="city"
-                value={this.state.city}
-                placeholder = "City"
-                onChange={this.onChange}
-            ></input><br/>
-            <input
-                type="text"
-                name="state"
-                value={this.state.state}
-                placeholder = "State"
-                onChange={this.onChange}
-            ></input><br/>
-            <button type="submit">Save Business</button>
-    
-        </form>
+                <input type="text" name="address" value={this.state.address} placeholder = "Address"
+                 onChange={this.onChange}></input><br/>
+
+                <input type="text" name="city" value={this.state.city} placeholder = "City"
+                 onChange={this.onChange}></input><br/>
+
+                <input type="text" name="state" value={this.state.state} placeholder = "State"
+                 onChange={this.onChange}></input><br/>
+
+                <button type="submit"><b>Save</b></button>
+            </form>
     </div>
     )
     
